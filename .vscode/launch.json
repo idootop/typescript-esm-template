@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Test",
+      "type": "node",
+      "request": "launch",
+      "args": ["${workspaceFolder}/tests/index.ts"],
+      "runtimeArgs": [
+        "--experimental-specifier-resolution=node",
+        "--loader",
+        "./scripts/esm-loader.js",
+        "-r",
+        "tsconfig-paths/register",
+        "-r",
+        "./scripts/disable-experimental-warning.cjs"
+      ],
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "name": "Run",
+      "type": "node",
+      "request": "launch",
+      "args": ["${workspaceFolder}/${relativeFile}"],
+      "runtimeArgs": [
+        "--experimental-specifier-resolution=node",
+        "--loader",
+        "./scripts/esm-loader.js",
+        "-r",
+        "tsconfig-paths/register",
+        "-r",
+        "./scripts/disable-experimental-warning.cjs"
+      ],
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  ]
+}
