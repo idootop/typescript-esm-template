@@ -13,7 +13,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "dev": "./scripts/run src/index.ts",

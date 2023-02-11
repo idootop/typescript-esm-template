@@ -1,23 +1,20 @@
-name: Lint and build
-on:
-  - push
-  - pull_request
-
+name: CI
+on: [push, pull_request]
 jobs:
-  cache-and-install:
+  build:
     runs-on: ubuntu-latest
-
+    name: Lint & build on node 16.x and ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Install Node16
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 16.x
 
       - uses: pnpm/action-setup@v2
-        name: Install pnpm
+        name: Install pnpm 7
         id: pnpm-install
         with:
           version: 7
@@ -45,3 +42,14 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+  # test:
+  #   name: Test on Node ${{ matrix.node }} and ${{ matrix.os }}
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       node: ['16.x', '18.x']
+  #       os: [ubuntu-latest, windows-latest, macOS-latest]
+  #   steps:
+  #     - name: Test
+  #       uses: pnpm test
