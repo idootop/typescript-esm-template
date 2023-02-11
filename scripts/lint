@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-prettier --cache --write -c .
 eslint --cache --fix src tests scripts
+prettier --cache --write -c .

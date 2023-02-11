@@ -1,7 +1,7 @@
 export const timestamp = () => Date.now();
 
 export const delay = async (time: number) =>
-  new Promise<void>(resolve => setTimeout(resolve, time));
+  new Promise<void>((resolve) => setTimeout(resolve, time));
 
 export const printf = (...v: any[]) => console.log(...v);
 

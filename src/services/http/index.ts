@@ -32,7 +32,7 @@ class HTTPClient {
    */
   static _fetchWithTimeout = async (url: string, config?: RequestInit) => {
     return await pTimeout(
-      fetch(url, config as any).catch(e => {
+      fetch(url, config as any).catch((e) => {
         if (!e.message?.includes('aborted')) {
           console.error('❌ 网络异常：', e);
         }

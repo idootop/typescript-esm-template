@@ -15,7 +15,7 @@ export const readFile = <T = any>(
   if (!fs.existsSync(dirname)) {
     return undefined;
   }
-  return new Promise<T | undefined>(resolve => {
+  return new Promise<T | undefined>((resolve) => {
     fs.readFile(filePath, options, (err, data) => {
       resolve(err ? undefined : (data as any));
     });
@@ -31,13 +31,13 @@ export const writeFile = (
   if (!fs.existsSync(dirname)) {
     fs.mkdirSync(dirname, { recursive: true });
   }
-  return new Promise<boolean>(resolve => {
+  return new Promise<boolean>((resolve) => {
     if (options) {
-      fs.writeFile(filePath, data, options, err => {
+      fs.writeFile(filePath, data, options, (err) => {
         resolve(err ? false : true);
       });
     } else {
-      fs.writeFile(filePath, data, err => {
+      fs.writeFile(filePath, data, (err) => {
         resolve(err ? false : true);
       });
     }
